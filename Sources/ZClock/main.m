@@ -61,6 +61,9 @@ static NSString *ClockOffset(NSTimeZone *zone, NSDate *date) {
     _statusFormatter.dateFormat = _selectedFormat;
 
     _statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    NSFont *statusFont = _statusItem.button.font;
+    _statusItem.button.font = [NSFont monospacedDigitSystemFontOfSize:statusFont.pointSize
+        weight:NSFontWeightRegular];
     NSMenu *menu = [NSMenu new];
     menu.delegate = self;
     _statusItem.menu = menu;
